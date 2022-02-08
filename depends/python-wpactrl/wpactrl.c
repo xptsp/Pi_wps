@@ -301,8 +301,8 @@ static void WPACtrl_close(WPACtrl* self)
 		self->ctrl_iface_path = NULL;
 	}
 
-	if (self->ob_type)
-		self->ob_type->tp_free((PyObject*)(self));
+	if (Py_TYPE(self))
+		Py_TYPE(self)->tp_free((PyObject*)(self));
 }
 
 /* -------------------------------------------------------------------- Member/Method Structures */
